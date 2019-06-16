@@ -14,7 +14,7 @@ for i=1:length(allNodesT)
         centroidPrimitive = regionprops(primitive, 'Centroid');
         centroidP=centroidPrimitive.Centroid;
         if centroidN==centroidP
-            field1='id';value1=k;
+            field1='nodeId';value1=k;
             field2='type';value2='primitive';
             field3='centroid';value3=centroidN;
             field4='image';value4=node;
@@ -38,7 +38,7 @@ for i=1:length(allNodesT)
         centroidJointpointsNode = regionprops(JointpointsNode, 'Centroid');
         centroidJ=centroidJointpointsNode.Centroid;
         if centroidN==centroidJ
-            field1='id';value1=k;
+            field1='nodeId';value1=k;
             field2='type';value2='jointpoint';
             field3='centroid';value3=centroidN;
             field4='image';value4=node;
