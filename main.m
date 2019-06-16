@@ -1,14 +1,14 @@
 clc;
 clear all;
 tic;
-I=imread('205.png');                                      %读取原图
+I=imread('208.png');                                      %读取原图
 BW=preprocessing(I);                                     %预处理
 graphic=textseparate(BW);                                %去字符
 thinGraphic1=thin(graphic);
 thinGraphic=thinner(thinGraphic1);                   %对整个框图进行细化
 thinGraphic=~thinGraphic;
 
-figure,imshow(thinGraphic);
+% figure,imshow(thinGraphic);
 allEndPoints=findAllendPoints(thinGraphic);
 
 innercontour = inner_Contour(graphic);                   %获得内轮廓
@@ -22,7 +22,7 @@ allprimitives=findAllprimitives(primitives);      %所有图元节点 标记
 [everylines]=seperateLines(linesgraphic);                %单个连接线
 [seperateLinesGraphics,ids,jointpoints,linewidth]=LinesFromJointpointLines(everylines);%找到含有分支点的连接线以及对应编号id，将分支点断开
 allSeperateLinesGraphics=findAllSeperateLines(everylines,seperateLinesGraphics,ids);   %生产成断开分支点后的连接线层
-figure,imshow(linesgraphic);
+figure,imshow(allSeperateLinesGraphics);
 
 hold on;
 jointpointsNodes=xor(linesgraphic,allSeperateLinesGraphics); %分支点作为节点处理，生成分支点层
@@ -61,4 +61,5 @@ toc;
 %     imwrite(arrow,strcat('C:\Users\dell\Desktop\箭头集\c',num2str(i),'.png'));
 % end
 
-
+% filename='my5.mat';
+% save(['C:\Users\dell\Desktop\毕设2\data\',filename]);

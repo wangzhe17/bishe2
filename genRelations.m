@@ -21,8 +21,8 @@ for i=1:length(allNodeInfoT)
             T=or(t,line);
             [~,num]=bwlabel(T);
             if num==1
-                field1='idA';value1=A.id;
-                field2='idB';value2=B.id;
+                field1='idA';value1=A.nodeId;
+                field2='idB';value2=B.nodeId;
                 field3='idline';value3=k;
                 s=struct(field1,value1,field2,value2,field3,value3);
                 relations{cc}=s;

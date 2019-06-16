@@ -1,4 +1,5 @@
 function [everySkeletonPoints,everySkeletonSumAll,everySkeletonLines]=findAlleverySkletonPoint(everySeperateLines,linewidth)
+
 everySkeletonPoints=[];
 everySkeletonSumAll=[];
 everySkeletonLines=[];

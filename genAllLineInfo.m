@@ -33,7 +33,9 @@ for i=1:length(everySeperateLines)
         end
     end
     field5='arrowZuobiao';
-    if ~isempty(allArrowPoints{i})
+    if isempty(allArrowPoints{i})
+        value5=[];
+    elseif ~isempty(allArrowPoints{i})
         value5=allArrowPoints{i};
     end
     sLine=struct(field1,value1,field2,value2,field3,value3,field4,value4,field5,value5);
