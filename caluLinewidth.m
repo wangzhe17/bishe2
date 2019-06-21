@@ -1,5 +1,5 @@
 function linewidth=caluLinewidth(A,AM)
-se=strel('disk',2);
+se=strel('disk',1);
 A=imdilate(A,se);
 contour = bwperim(A);
 [rAM,cAM]=find(AM==1);

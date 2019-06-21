@@ -7,6 +7,8 @@ for l=1:length(everySeperateLines)
     points=[];
     sumAll=[];
     A=everySeperateLines{l};
+%     figure,imshow(A);
+%     hold on;
     se1=strel('disk',10);
     se2=strel('disk',5);
     A1=imdilate(A,se1);
@@ -20,14 +22,14 @@ for l=1:length(everySeperateLines)
     k=1;
     for i=2:m-1
         for j=2:n-1
-            if sum(sum(AA(i-1:i+1,j-1:j+1)))==2 && AA(i,j)==1
+            if sum(sum(AA(i-1:i+1,j-1:j+1)))==2 && AA(i,j)==1        %检测端点
                 endpoints{k}=[j,i];
                 k=k+1;
             end
         end
     end
     endpoint=endpoints{1};
-    tpoints=findSkletonPoints(AA,endpoint);
+    tpoints=findSkletonPoints(AA,endpoint);    %沿8邻域进行遍历，生成骨架线序列
 %     everySkeletonPoints{l}=tpoints;
     for i=1:length(tpoints)
         pp=tpoints{i};
@@ -39,7 +41,7 @@ for l=1:length(everySeperateLines)
     xi=points(:,2);
     se1=strel('disk',1);
 %     A=imerode(A,se1);
-    radius=round(1.1*linewidth);
+    radius=round(1.1*linewidth);   %设置扫描的矩形宽度阈值
     [w,h]=size(AM);
     for k=1:length(xi)
     x1=xi(k,1);
@@ -57,7 +59,11 @@ for l=1:length(everySeperateLines)
         end
     roiC=xor(B,A);
     sumTmp=sum(sum(roiC));
-    sumAll(k,1)=sumTmp;
+    sumAll(k,1)=sumTmp;  %取得骨架线序列所有的
     end
+    temp=sumAll;
+    
     everySkeletonSumAll{l}=sumAll;
+%     figure,plot(temp);
+%     hold on;
 end

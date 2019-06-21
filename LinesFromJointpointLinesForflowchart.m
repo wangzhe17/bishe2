@@ -1,4 +1,4 @@
-function [seperateLinesGraphics,ids,jointpoints,linewidth]=LinesFromJointpointLines(everylines)
+function [seperateLinesGraphics,ids,jointpoints,linewidth]=LinesFromJointpointLinesForflowchart(everylines)
 d=1;
 ids=[];
 jointpoints=[];
@@ -6,12 +6,13 @@ seperateLinesGraphic=[];
 for k=1:length(everylines)
     A=everylines{k};
     B=A;
-    se1=strel('disk',10);
-    se2=strel('disk',5);
+    se1=strel('disk',1);
     A1=imdilate(A,se1);
+%     figure,imshow(A1);
+    
     [aa,AM]=zhang(~A1);
-    AM=imerode(AM,se2);
-    [aa,AM]=zhang(AM);
+%     AM=imerode(AM,se);
+%     [aa,AM]=zhang(AM);
     AM=~AM;
     AA=thinner(AM);
     figure,imshow(AA);

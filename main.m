@@ -1,9 +1,10 @@
 clc;
 clear all;
 tic;
-I=imread('208.png');                                      %读取原图
+I=imread('my5.png');                                      %读取原图
 BW=preprocessing(I);                                     %预处理
 graphic=textseparate(BW);                                %去字符
+figure,imshow(graphic);
 thinGraphic1=thin(graphic);
 thinGraphic=thinner(thinGraphic1);                   %对整个框图进行细化
 thinGraphic=~thinGraphic;
@@ -61,5 +62,5 @@ toc;
 %     imwrite(arrow,strcat('C:\Users\dell\Desktop\箭头集\c',num2str(i),'.png'));
 % end
 
-% filename='my5.mat';
+% filename='204.mat';
 % save(['C:\Users\dell\Desktop\毕设2\data\',filename]);
