@@ -1,7 +1,7 @@
 clc;
 clear;
 tic;
-I=imread('my5.png');                                      %读取原图
+I=imread('228.png');                                      %读取原图
 BW=preprocessing(I);                                     %预处理
 graphic=textseparate(BW);                                %去字符
 % thinGraphic1=thin(graphic);
